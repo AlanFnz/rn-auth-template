@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,6 +7,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+
+// store
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '../store';
+import { bootstrapAsync } from '../store/authSlice';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -21,8 +26,14 @@ function HomeTabs() {
 }
 
 export default function Navigation() {
-  const userToken = null;
-  const isLoading = false;
+  const dispatch = useDispatch<AppDispatch>();
+  const { isLoading, userToken } = useSelector(
+    (state: RootState) => state.auth,
+  );
+
+  useEffect(() => {
+    dispatch(bootstrapAsync());
+  }, [dispatch]);
 
   if (isLoading) {
     return <></>;

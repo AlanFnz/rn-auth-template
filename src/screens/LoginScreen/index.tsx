@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
-import { Button, Text } from 'react-native';
 import styled from 'styled-components/native';
+import { Button, Text } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../store';
+import { performSignIn } from '../../store/authSlice';
 
 const LoginScreen: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <Container>
@@ -22,9 +26,7 @@ const LoginScreen: React.FC = () => {
       />
       <Button
         title="Sign in"
-        onPress={() => {
-          console.log('Sign In');
-        }}
+        onPress={() => dispatch(performSignIn(username, password))}
       />
     </Container>
   );
