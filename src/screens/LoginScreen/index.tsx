@@ -9,6 +9,10 @@ const LoginScreen: React.FC = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch<AppDispatch>();
 
+  const handleSignIn = () => {
+    dispatch(performSignIn(username, password));
+  };
+
   return (
     <Container>
       <Title>Login Screen</Title>
@@ -23,7 +27,7 @@ const LoginScreen: React.FC = () => {
         onChangeText={setPassword}
         secureTextEntry
       />
-      <SignInButton onPress={() => dispatch(performSignIn(username, password))}>
+      <SignInButton onPress={handleSignIn}>
         <SignInText>Sign In</SignInText>
       </SignInButton>
     </Container>

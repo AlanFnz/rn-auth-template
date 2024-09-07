@@ -7,10 +7,15 @@ import { Title } from 'react-native-paper';
 
 const SettingsScreen: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+
+  const handleSignOut = () => {
+    dispatch(performSignOut());
+  };
+
   return (
     <Container>
       <Title>Settings</Title>
-      <SignOutButton onPress={() => dispatch(performSignOut())}>
+      <SignOutButton onPress={handleSignOut}>
         <SignOutText>Sign Out</SignOutText>
       </SignOutButton>
     </Container>
