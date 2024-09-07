@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { Container } from './styles';
+import { Title } from 'react-native-paper';
 
 const HomeScreen: React.FC = () => {
   return (
@@ -8,22 +9,5 @@ const HomeScreen: React.FC = () => {
     </Container>
   );
 };
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #e2dbd0;
-  padding: 0 6%;
-`;
-
-const Title = styled.Text`
-  font-size: 18px;
-  font-weight: bold;
-  color: #1f1b24;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-`;
 
 export default HomeScreen;
