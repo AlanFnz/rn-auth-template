@@ -27,13 +27,13 @@ This is a React Native template that includes basic authentication functionality
 
 ```arduino
 /screens
-  LoginScreen.tsx // Screen for user login
-  Home.tsx // Main screen after login
-  SettingsScreen.tsx // Settings screen with sign out button
+  login.tsx // Screen for user login
+  home.tsx // Main screen after login
+  settings.tsx // Settings screen with sign out button
 /styles
   // Contains separated styled components for various screens
 /store
-  authSlice.ts // Redux slice for authentication (login and logout logic)
+  auth-slice.ts // Redux slice for authentication (login and logout logic)
   index.ts // Store setup for the application
 /navigation
   index.tsx // Main navigation setup (Tab and Stack Navigators)
@@ -98,5 +98,5 @@ The user can navigate to the Settings Screen and sign out, returning them to the
 # Customization
 
 - **Styling:** All components are styled using styled-components. You can find and modify the styles in the /styles folder.
-- **State Management:** The authentication logic (sign-in, sign-out) is handled using Redux. The store is set up in /store/authSlice.ts.
-- **Navigation:** Stack and tab navigation are configured in the /navigation/index.tsx file. You can easily add more screens or customize navigation behavior
+- **State Management:** The authentication logic (sign-in, sign-out) is handled using Redux. The store is set up in /store/auth-slice.ts.
+- **Navigation:** Stack and tab navigation are configured in the /navigation/navigation.tsx file. You can easily add more screens or customize navigation behavior
