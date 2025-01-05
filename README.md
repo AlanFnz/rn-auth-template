@@ -2,6 +2,8 @@
 
 This is a React Native template that includes basic authentication functionality (sign-in and sign-out) using Redux for state management. The template provides a starting point for building mobile apps with authentication workflows, such as login, logout, and handling user tokens.
 
+<img width="375" alt="rn-auth-template-ui" src="https://github.com/user-attachments/assets/8213dbdc-a9b6-4d26-a5f9-2b8a8ab9b29a" />
+
 ## Features
 
 - **Authentication:** Sign-in and sign-out functionality using redux and redux-thunk.
