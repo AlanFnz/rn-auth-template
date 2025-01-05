@@ -3,30 +3,30 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 
-// screens
-import LoginScreen from '@screens/LoginScreen';
-import HomeScreen from '@screens/HomeScreen';
-import SettingsScreen from '@screens/SettingsScreen';
-
 // store
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '@store/index';
-import { bootstrapAsync } from '@store/authSlice';
-import { tabNavigatorStyles } from '@navigation/tabNavigatorStyles';
+import { bootstrapAsync } from '@store/auth-slice';
+
+// screens
+import { Login } from '@screens/login';
+import { Home } from '@screens/home';
+import { Settings } from '@screens/settings';
+import { navigationStyles } from '@navigation/navigation.styled';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function HomeTabs() {
   return (
-    <Tab.Navigator screenOptions={tabNavigatorStyles}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+    <Tab.Navigator screenOptions={navigationStyles}>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Settings" component={Settings} />
     </Tab.Navigator>
   );
 }
 
-export default function Navigation() {
+export function Navigation() {
   const dispatch = useDispatch<AppDispatch>();
   const { isLoading, userToken } = useSelector(
     (state: RootState) => state.auth,
@@ -46,7 +46,7 @@ export default function Navigation() {
         {userToken == null ? (
           <Stack.Screen
             name="SignIn"
-            component={LoginScreen}
+            component={Login}
             options={{ title: 'Sign in', headerShown: false }}
           />
         ) : (

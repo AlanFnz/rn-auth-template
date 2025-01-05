@@ -28,7 +28,7 @@ This is a React Native template that includes basic authentication functionality
 ```arduino
 /screens
   LoginScreen.tsx // Screen for user login
-  HomeScreen.tsx // Main screen after login
+  Home.tsx // Main screen after login
   SettingsScreen.tsx // Settings screen with sign out button
 /styles
   // Contains separated styled components for various screens

@@ -1,11 +1,12 @@
 import React from 'react';
-import { performSignOut } from '../../store/authSlice';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../store';
-import { Container, SignOutButton, SignOutText } from './styles';
 import { Title } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
 
-const SettingsScreen: React.FC = () => {
+import { performSignOut } from '../../store/auth-slice';
+import { AppDispatch } from '../../store';
+import { Container, SignOutButton, SignOutText } from './settings.styled';
+
+export const Settings: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSignOut = () => {
@@ -21,5 +22,3 @@ const SettingsScreen: React.FC = () => {
     </Container>
   );
 };
-
-export default SettingsScreen;

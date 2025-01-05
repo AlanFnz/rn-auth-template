@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '@store/index';
-import { performSignIn } from '@store/authSlice';
-import { Container, Input, SignInButton, SignInText, Title } from './styles';
 
-const LoginScreen: React.FC = () => {
+import { AppDispatch } from '@store/index';
+import { performSignIn } from '@store/auth-slice';
+import {
+  Container,
+  Input,
+  SignInButton,
+  SignInText,
+  Title,
+} from './login.styled';
+
+export const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch<AppDispatch>();
@@ -33,5 +40,3 @@ const LoginScreen: React.FC = () => {
     </Container>
   );
 };
-
-export default LoginScreen;

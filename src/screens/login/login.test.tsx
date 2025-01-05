@@ -1,8 +1,9 @@
 import React from 'react';
-import LoginScreen from '../src/screens/LoginScreen';
-import { render, fireEvent } from '@testing-library/react-native';
 import { useDispatch } from 'react-redux';
-import { performSignIn } from '../src/store/authSlice';
+import { render, fireEvent } from '@testing-library/react-native';
+
+import { performSignIn } from '../../store/auth-slice';
+import { Login } from './login';
 
 jest.mock('react-redux', () => ({
   useDispatch: jest.fn(),
@@ -12,14 +13,14 @@ jest.mock('../src/store/authSlice', () => ({
   performSignIn: jest.fn(),
 }));
 
-describe('LoginScreen', () => {
+describe('<Login />', () => {
   const mockDispatch = jest.fn();
   beforeEach(() => {
-    (useDispatch as jest.Mock).mockReturnValue(mockDispatch);
+    (useDispatch as unknown as jest.Mock).mockReturnValue(mockDispatch);
   });
 
   it('renders correctly', () => {
-    const { getByPlaceholderText, getByText } = render(<LoginScreen />);
+    const { getByPlaceholderText, getByText } = render(<Login />);
 
     expect(getByPlaceholderText('Username')).toBeTruthy();
     expect(getByPlaceholderText('Password')).toBeTruthy();
@@ -27,7 +28,7 @@ describe('LoginScreen', () => {
   });
 
   it('dispatches performSignIn on button press', () => {
-    const { getByPlaceholderText, getByText } = render(<LoginScreen />);
+    const { getByPlaceholderText, getByText } = render(<Login />);
 
     const usernameInput = getByPlaceholderText('Username');
     const passwordInput = getByPlaceholderText('Password');

@@ -1,6 +1,6 @@
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
 
-export const tabNavigatorStyles = (): BottomTabNavigationOptions => ({
+export const navigationStyles = (): BottomTabNavigationOptions => ({
   headerShown: false,
   tabBarStyle: {
     backgroundColor: '#22262e',
